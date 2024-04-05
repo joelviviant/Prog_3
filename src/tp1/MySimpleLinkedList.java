@@ -25,12 +25,10 @@ public class MySimpleLinkedList<T> {
 	}
 
 	public boolean isEmpty() {
-		// TODO
-		return false;
+		return this.first == null;
 	}
-	
+
 	public T get(int index) {
-		// TODO
 		return null;
 	}
 	

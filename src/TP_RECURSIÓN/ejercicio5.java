@@ -1,4 +1,4 @@
-package tp2;
+package TP_RECURSIÓN;
 
 public class ejercicio5 {
 

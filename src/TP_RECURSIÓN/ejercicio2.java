@@ -1,4 +1,4 @@
-package tp2;
+package TP_RECURSIÓN;
 
 public class ejercicio2 {
     public static boolean buscarElemento(int[]arr, int elemento, int inicio, int fin){

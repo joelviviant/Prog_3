@@ -56,4 +56,34 @@ public class Tree {
 			return buscarValor(actual.getRight(), value);
 		}
 	}
+
+	private boolean isEmpty(){
+		return root == null;
+	}
+
+	public void insert(Integer value) {
+		if (root == null) {
+			root = new TreeNode(value);
+			return;
+		}
+		TreeNode actual = root;
+		while (true) {
+			if (value < actual.getValue()) {
+				if (actual.getLeft() == null) {
+					actual.setLeft(new TreeNode(value));
+					return;
+				} else {
+					actual = actual.getLeft();
+				}
+			} else if (value > actual.getValue()) {
+				if (actual.getRight() == null) {
+					actual.setRight(new TreeNode(value));
+					return;
+				} else {
+					actual = actual.getRight();
+				}
+			}
+		}
+	}
+
 }

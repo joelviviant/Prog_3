@@ -86,4 +86,20 @@ public class Tree {
 		}
 	}
 
+	public int getHeight() {
+		if (root == null) {
+			return 0;
+		} else if (root != null && root.getLeft() == null && root.getRight()==null) {
+			return 0;
+		}
+		return calculateHeight(root);
+	}
+
+	private int calculateHeight(TreeNode actuak) {
+		int leftHeight = calculateHeight(actuak.getLeft());
+		int rightHeight = calculateHeight(actuak.getRight());
+		return 1 + Math.max(leftHeight, rightHeight);
+	}
+
+
 }

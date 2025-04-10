@@ -221,6 +221,51 @@ public class Tree {
         }
     }
 
+    private TreeNode deleteNode(TreeNode node, Integer value) {
+        if (node == null) return null;
+
+        if (value < node.getValue()) {
+            node.setLeft(deleteNode(node.getLeft(), value));
+        } else if (value > node.getValue()) {
+            node.setRight(deleteNode(node.getRight(), value));
+        } else {
+            // Caso 1: sin hijos
+            if (node.getLeft() == null && node.getRight() == null) {
+                return null;
+            }
+            // Caso 2: un solo hijo
+            if (node.getLeft() == null) {
+                return node.getRight();
+            }
+            if (node.getRight() == null) {
+                return node.getLeft();
+            }
+            // Caso 3: dos hijos
+            TreeNode sucesor = getMin(node.getRight());
+            node.setValue(sucesor.getValue());
+            node.setRight(deleteNode(node.getRight(), sucesor.getValue()));
+        }
+
+        return node;
+    }
+    private TreeNode getMin(TreeNode node) {
+        while (node.getLeft() != null) {
+            node = node.getLeft();
+        }
+        return node;
+    }
+
+    public int sumaNodosInternos(TreeNode node) {
+        if (node == null) return 0;
+        if (node.getLeft() == null && node.getRight() == null) {
+            return 0;
+        }
+        int suma = node.getValue();
+        suma += sumaNodosInternos(node.getLeft());
+        suma += sumaNodosInternos(node.getRight());
+        return suma;
+    }
+
 
 
 }

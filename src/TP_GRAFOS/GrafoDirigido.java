@@ -30,56 +30,69 @@ public class GrafoDirigido<T> implements Grafo<T> {
 	}
  	@Override
 	public boolean contieneVertice(int verticeId) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.adyacencias.containsKey(verticeId);
 	}
 
 	@Override
 	public boolean existeArco(int verticeId1, int verticeId2) {
-		// TODO Auto-generated method stub
-		return false;
+		return this.adyacencias.get(verticeId1).containsKey(verticeId2);
 	}
 
 	@Override
 	public Arco<T> obtenerArco(int verticeId1, int verticeId2) {
-		// TODO Auto-generated method stub
+		if (this.existeArco(verticeId1, verticeId2)) {
+			return new Arco<>(verticeId1, verticeId2, this.adyacencias.get(verticeId1).get(verticeId2));
+		}
 		return null;
 	}
 
 	@Override
 	public int cantidadVertices() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.adyacencias.size();
 	}
 
 	@Override
 	public int cantidadArcos() {
-		// TODO Auto-generated method stub
-		return 0;
+		int cantidad = 0;
+		for (Map<Integer, T> vecinos : adyacencias.values()) {
+			cantidad += vecinos.size();
+		}
+		return cantidad;
 	}
 
 	@Override
 	public Iterator<Integer> obtenerVertices() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.adyacencias.keySet().iterator();
 	}
 
 	@Override
 	public Iterator<Integer> obtenerAdyacentes(int verticeId) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.adyacencias.get(verticeId).keySet().iterator();
 	}
 
 	@Override
 	public Iterator<Arco<T>> obtenerArcos() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Arco<T>> arcos = new ArrayList<>();
+		for (Map.Entry<Integer, Map<Integer, T>> entrada : adyacencias.entrySet()) {
+			Integer origen = entrada.getKey();
+			Map<Integer, T> destinos = entrada.getValue();
+			for (Map.Entry<Integer, T> destino : destinos.entrySet()) {
+				arcos.add(new Arco<>(origen, destino.getKey(), destino.getValue()));
+			}
+		}
+		return arcos.iterator();
 	}
 
 	@Override
 	public Iterator<Arco<T>> obtenerArcos(int verticeId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Arco<T>> arcos = new ArrayList<>();
+		if (this.contieneVertice(verticeId)) {
+			Map<Integer, T> adyacentes = this.adyacencias.get(verticeId);
+			for (Map.Entry<Integer, T> adyacente : adyacentes.entrySet()) {
+				arcos.add(new Arco<>(verticeId, adyacente.getKey(), adyacente.getValue()));
+			}
+		}
+		return arcos.iterator();
 	}
 
 }

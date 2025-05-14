@@ -267,6 +267,25 @@ public class Tree {
     }
 
 
+    public List<Integer> hojasMayoresQue(TreeNode node, int k) {
+        List<Integer> resultado = new ArrayList<>();
+        buscarHojasMayores(node, k, resultado);
+        return resultado;
+    }
+
+    private void buscarHojasMayores(TreeNode node, int k, List<Integer> resultado) {
+        if (node == null) return;
+        if (node.getLeft() == null && node.getRight() == null) {
+            if (node.getValue() > k) {
+                resultado.add(node.getValue());
+            }
+            return;
+        }
+        if (node.getValue() > k) {
+            buscarHojasMayores(node.getLeft(), k, resultado);
+        }
+        buscarHojasMayores(node.getRight(), k, resultado);
+    }
 
 }
 

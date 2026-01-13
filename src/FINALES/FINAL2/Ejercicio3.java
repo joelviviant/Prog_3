@@ -15,21 +15,24 @@ public class Ejercicio3 {
         backtracking(piramide,usados,colActual,N,max);
     }
 
-    private int[][] backtracking(int[][] piramide, List<Integer> usados, int colActual, int n, int max) {
+    private void backtracking(int[][] piramide, List<Integer> usados, int colActual, int n, int max) {
         //CASO BASE
         if (colActual == n){
              calcularPiramide(piramide,n);
-             return piramide;
+             return ;
         }
 
         //PROBAR CON NUMEROS EN LA BASE
-        piramide[5][colActual] = (int) Math.random();
-        if (piramide[5][colActual]<200 && usados.contains(piramide[5][colActual])){
-            backtracking(piramide,usados,colActual+1,n,max);
+        for (int i = 1; i<max; i++){
+            int valor = i;
+            piramide[n-1][colActual]= valor;
+            if (!usados.contains(valor)){
+                usados.add(valor);
+                backtracking(piramide,usados,colActual+1,n,max);
+                piramide[n-1][colActual] = 0;
+                usados.remove(valor);
+            }
         }
-        piramide[5][colActual] = 0;
-        usados.remove(piramide[5][colActual]);
-        return piramide;
     }
 
     private void calcularPiramide(int[][] piramide, int n){
@@ -39,5 +42,4 @@ public class Ejercicio3 {
             }
         }
     }
-
 }

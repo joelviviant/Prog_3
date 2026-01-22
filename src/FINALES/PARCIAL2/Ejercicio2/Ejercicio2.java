@@ -1,6 +1,4 @@
-package FINALES.FINAL2.Ejercicio2;
-
-import FINALES.FINAL1.Ejercicio3.Factura;
+package FINALES.PARCIAL2.Ejercicio2;
 
 import java.util.ArrayList;
 import java.util.Comparator;

@@ -1,10 +1,4 @@
-package FINALES.FINAL2;
-
-import TP_GRAFOS.Grafo;
-import org.w3c.dom.Node;
-
-import java.util.ArrayList;
-import java.util.List;
+package FINALES.PARCIAL2;
 
 public class Ejercicio1 {
 //    int mejorPeso =0;

@@ -1,4 +1,4 @@
-package FINALES.FINAL3;
+package FINALES.PARCIAL3;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -25,7 +25,7 @@ public class Ejercicio2 {
                 backtracking(numeros, camino, usados);
             }
         }
-        int ultimo = camino.remove(camino.size() - 1);
+        int ultimo = camino.remove(camino.size() - 1); 
         usados.remove(ultimo);
     }
 

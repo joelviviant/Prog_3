@@ -1,4 +1,4 @@
-package FINALES.FINAL2;
+package FINALES.PARCIAL2;
 
 public class Ejercicio4 {
     //o->16->20

@@ -1,4 +1,4 @@
-package FINALES.FINAL3;
+package FINALES.PARCIAL3;
 
 public class Ejercicio3 {
     //Hashing lineal  h(x)= x mod M

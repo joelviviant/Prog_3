@@ -1,4 +1,4 @@
-package FINALES.FINAL3;
+package FINALES.PARCIAL3;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package FINALES.FINAL1.Ejercicio3;
+package FINALES.PARCIAL1.Ejercicio3;
 
 import java.util.Comparator;
 import java.util.List;

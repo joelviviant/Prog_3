@@ -1,4 +1,4 @@
-package FINALES.FINAL2.Ejercicio2;
+package FINALES.PARCIAL2.Ejercicio2;
 
 public class Cancion {
 

@@ -1,4 +1,4 @@
-package FINALES.FINAL1;
+package FINALES.PARCIAL1;
 
 import java.util.ArrayList;
 import java.util.List;

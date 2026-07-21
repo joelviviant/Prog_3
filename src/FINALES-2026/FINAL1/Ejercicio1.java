@@ -2,6 +2,8 @@ package FINALES.FINAL1;
 
 public class Ejercicio1 {
 
+    //A
+
     // hashing separado con incremento
     //m=3, rp=2, rs =1 y rho de diseño =1,05
     // ingresar 8 numero(1,12,23,34,45,56,76,87)
@@ -68,6 +70,28 @@ public class Ejercicio1 {
     //2 -> 23-> 56
     //3-> 87
     // 8/8 = 1 rho temp
+
+
+    //B
+
+
+    //Dispersión perfecta
+
+    //Definición: Es cuando la función hash asigna cada clave a un bucket distinto, sin que se produzca ninguna colisión.
+    //    Ejemplo:
+    //Con M=5 y h(x) = x mod 5, insertando {5, 11, 22, 33, 44}:
+    //h(5)=0, h(11)=1, h(22)=2, h(33)=3, h(44)=4
+    //Cada clave cae en un bucket diferente → no hay colisiones → dispersión perfecta.
+
+    //Dispersión pura
+
+    //Definición: Es cuando no se usa un área de overflow separada; si un bucket está ocupado, el elemento se ubica en otro bucket primario libre de la misma tabla (por ejemplo con sondeo lineal).
+    //Ejemplo:
+    //Con M=5 y h(x) = x mod 5, usando sondeo lineal:
+    //    Insertar 10 → h(10)=0 → bucket 0 libre → entra en bucket 0
+    //    Insertar 15 → h(15)=0 → ocupado → bucket 1 libre → entra en bucket 1
+    //    Insertar 20 → h(20)=0 → ocupado → bucket 1 ocupado → bucket 2 libre → entra en bucket 2
+    //    El 15 y el 20 no quedan en el bucket que indica su hash, sino en el siguiente bucket primario libre de la tabla.
 }
 
 

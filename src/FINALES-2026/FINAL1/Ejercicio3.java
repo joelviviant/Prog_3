@@ -4,7 +4,7 @@ import org.w3c.dom.Node;
 import java.util.*;
 
 public class Ejercicio3 {
-    public int caminoCorto (Node v, Node w) {
+    public int caminoCorto(Node v, Node w) {
         List<Node> cola = new ArrayList<Node>();
         Set<Node> visitados = new HashSet<>();
         Map<Node, Node> padre = new HashMap<>();
@@ -15,12 +15,12 @@ public class Ejercicio3 {
 
         while (!cola.isEmpty()) {
             actual = cola.remove(0);
-            if (actual == w){
+            if (actual == w) {
                 break;
             }
             List<Node> vecinos = actual.getVecinos();
             for (Node vecino : vecinos) {
-                if(!visitados.contains(vecino)) {
+                if (!visitados.contains(vecino)) {
                     visitados.add(vecino);
                     padre.put(vecino, actual);
                     cola.add(vecino);
@@ -38,7 +38,7 @@ public class Ejercicio3 {
 
         Collections.reverse(camino);
 
-        int largo = (camino.size()-1)*100;
+        int largo = (camino.size() - 1) * 100;
         System.out.println(camino);
         return largo;
     }

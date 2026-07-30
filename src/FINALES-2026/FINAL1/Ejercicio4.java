@@ -1,3 +1,5 @@
+import javax.swing.tree.TreeNode;
+
 public class Ejercicio4 {
 
     //lista array ordenada
@@ -14,5 +16,25 @@ public class Ejercicio4 {
     //Busqueda: O(log n), recorro el arbol hasta encontrar el valor
     //Alta: O(log n), busco la posicion correcta e inserto, hago las nuevas vinculaciones
     //Baja: O(log n), busco el elemento y lo elimino, hago las nuevas vinculaciones
+
+    //B
+
+    public boolean ejercicio4(TreeNode raiz, int D){
+        return  dfs(raiz,0,D);
+    }
+
+    private boolean dfs(TreeNode actual, int suma, int D) {
+        if (actual == null) return false;
+
+        suma += actual.valor;
+
+        // si es hoja
+        if (actual.izq == null && actual.der == null) {
+            return suma == D;
+        }
+
+        return dfs(actual.izq, suma, D) || dfs(actual.der, suma, D);
+    }
+
 
 }

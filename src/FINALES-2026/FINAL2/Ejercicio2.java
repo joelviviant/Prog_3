@@ -8,18 +8,15 @@ import java.util.List;
 
 public class Ejercicio2 {
     public List<Integer> ejercicio2(int m, int n, TreeNode root) {
-
         List<Integer> lista = new ArrayList<>();
-
         recorrer(root.getRaiz(), m, n, lista);
-
         return lista;
     }
 
     private void recorrer(Node actual, int m, int n, List<Integer> lista) {
         if(actual == null)
             return;
-        if(actual.getValor() > m)
+        if(actual.getIzquierda()!= null && actual.getValor() > m)
             recorrer(actual.getIzquierdo(), m, n, lista);
 
         if(actual.getValor() >= m && actual.getValor() <= n)

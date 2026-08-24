@@ -54,7 +54,56 @@ public class Ejercicio3 {
     // E-> (D, 1)
     // F->(nodo aislado, no tiene aristas)
 
+    //E)
 
+    import java.util.ArrayList;
+import java.util.List;
+
+    public class Grafo {
+        private int numVertices;
+        private List<List<Integer>> adj;
+
+        public Grafo(int numVertices) {
+            this.numVertices = numVertices;
+            adj = new ArrayList<>();
+            for (int i = 0; i < numVertices; i++) {
+                adj.add(new ArrayList<>());
+            }
+        }
+
+        public void agregarArista(int origen, int destino) {
+            adj.get(origen).add(destino);
+        }
+
+        public boolean esAciclico() {
+            int[] estado = new int[numVertices]; // 0: No visitado, 1: Visitando, 2: Visitado
+
+            for (int i = 0; i < numVertices; i++) {
+                if (estado[i] == 0) {
+                    if (tieneCicloDFS(i, estado)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private boolean tieneCicloDFS(int u, int[] estado) {
+            estado[u] = 1;
+
+            for (int v : adj.get(u)) {
+                if (estado[v] == 1) {
+                    return true;
+                }
+                if (estado[v] == 0 && tieneCicloDFS(v, estado)) {
+                    return true;
+                }
+            }
+
+            estado[u] = 2;
+            return false;
+        }
+    }
 
 
 

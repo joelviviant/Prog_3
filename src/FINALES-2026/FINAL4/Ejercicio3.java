@@ -47,4 +47,15 @@ public class Ejercicio3 {
     //Optimalidad.
 
     //D
+    //A ->(E, 2), (D, 6), (B, 6)
+    // B-> (A, 6), (D, 10), (C, 6)
+    // C->(no tiene aristas salientes)
+    // D->(no tiene aristas salientes)
+    // E-> (D, 1)
+    // F->(nodo aislado, no tiene aristas)
+
+
+
+
+
 }
